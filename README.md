@@ -1,5 +1,6 @@
 Шаблон сервиса на FastAPI
 
+## Запуск проекта
 ```shell
 # если poetry не установлена, ее можно скачать:
 # https://python-poetry.org/docs/#installation
