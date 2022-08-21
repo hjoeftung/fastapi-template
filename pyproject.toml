@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "Fastapi Template"
+version = "0.1.0"
+description = "Template for FastAPI projects"
+authors = ["hjoeftung <a.a.torshin@yandex.ru>"]
+license = "MIT"
+packages = [{ include = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "==0.79.1"
+SQLAlchemy = "==1.4.37"
+pydantic = "==1.9.2"
+alembic = "==1.8.1"
+uvicorn = "==0.18.2"
+httpx = "==0.23.0"
+asyncpg = "==0.26.0"
+yarl = "==1.8.1"
+sentry-sdk = "==1.9.5"
+structlog = "==22.1.0"
+python-dotenv = "==0.20.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^5.0.4"
+black = "^22.3.0"
+isort = "^5.10.1"
+mypy = "^0.971"
+ipython = "^8.4.0"
+pytest = "^7.1.2"
+pytest-asyncio = "^0.19.0"
+pytest-env = "^0.6.2"
+sqlalchemy-stubs = "^0.4"
+pre-commit = "^2.19.0"
+requests = "^2.28.0"
+freezegun = "^1.2.2"
+factory-boy = "^3.2.1"
+types-freezegun = "^1.1.10"
+SQLAlchemy-Utils = "^0.38.2"
+psycopg2-binary = "^2.9.3"
+coverage = "^6.4.4"
+types-requests = "^2.28.9"
+asyncpg-stubs = "^0.26.2"
+pytest-xdist = "^2.5.0"
+pytest-cov = "^3.0.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.1.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+py39 = true
+include = '\.py$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | env
+  | test-reports
+  | ptvs_virtualenv_proxy.py
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+default_section = "FIRSTPARTY"
+sections = "FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+known_local_folder = "api,core,crud,dtos,enums,migrations,models,schemas,sdk,tests"
+
+[tool.coverage.run]
+branch = true
+omit = ["*/virtualenvs/*", "*/tests/*", "*/sentry.py", "*/env.py"]
