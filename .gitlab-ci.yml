@@ -10,16 +10,16 @@ variables:
 
 pylint:
   stage: lint
-  image: python:3-slim
+  image: python:3.10-slim
   before_script:
-    - python3.10 -m pip install poetry
+    - python -m pip install poetry
     - poetry install
   script:
     - poetry run pylint bookmarker tests
 
 pytest:
   stage: test
-  image: python:3-slim
+  image: python:3.10-slim
   services:
     - name: postgres:14
   variables:
@@ -29,7 +29,7 @@ pytest:
     POSTGRES_HOST: postgres
     POSTGRES_PORT: 5432
   before_script:
-    - python3.10 -m pip install poetry
+    - python -m pip install poetry
     - poetry install
   script:
     - poetry run pytest --verbosity=2 --showlocals --log-level=DEBUG --cov=src --cov-report html --cov-fail-under=$MIN_COVERAGE
