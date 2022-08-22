@@ -1,22 +1,25 @@
 format:
-	isort src && black src
+	poetry run isort src && poetry run black src
+
+run:
+	poetry run python src/main.py
 
 test:
-	pytest src -n 4
+	poetry run pytest src -n 4
 
 check:
-	black src --check && \
-	isort src --check && \
-    flake8 src && \
-    mypy src
+	poetry run black src --check && \
+	poetry run isort src --check && \
+    poetry run flake8 src && \
+    poetry run mypy src
 
 create_migrations:
 	cd src && \
-	alembic revision --autogenerate
+	poetry run alembic revision --autogenerate
 
 migrate:
 	cd src && \
-	alembic upgrade head
+	poetry run alembic upgrade head
 
 env:
 	cp .env.example .env
