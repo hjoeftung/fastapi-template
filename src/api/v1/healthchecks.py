@@ -1,8 +1,8 @@
-from database.healthchecks import HealthChecksCRUD
 from fastapi import HTTPException
 from starlette import status
 from starlette.responses import JSONResponse, PlainTextResponse
 
+from crud.healthchecks import HealthChecksCRUD
 from sdk.logging.logged_router import LoggingAPIRouter
 
 router = LoggingAPIRouter()

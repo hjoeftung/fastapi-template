@@ -9,13 +9,13 @@ import pytest_asyncio
 from alembic import command as alembic_command
 from alembic.config import Config
 from database import engine as engine_module
-from database.base import BaseCRUD
 from fastapi import FastAPI
 from httpx import AsyncClient
 from requests import Session as RequestSession
 from sqlalchemy import create_engine
 from starlette.testclient import TestClient
 
+from crud.base import BaseCRUD
 from tests import utils as test_utils
 from tests.common import FACTORIES_SESSION, TEST_SETTINGS
 from tests.utils import make_alembic_config

@@ -1,7 +1,8 @@
 import typing as tp
 
 import sqlalchemy as sa
-from database.base import BaseCRUD
+
+from crud.base import BaseCRUD
 
 
 class HealthChecksCRUD(BaseCRUD):
