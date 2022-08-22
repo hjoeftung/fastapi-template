@@ -8,6 +8,9 @@
 # устанавливаем зависимости
 poetry install
 
+# копируем энвы
+make env
+
 # поднимаем postgres
 make db
 
