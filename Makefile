@@ -1,8 +1,8 @@
 format:
 	isort src && black src
 
-tests:
-	pytest src
+test:
+	pytest src -n 4
 
 check:
 	black src --check && \
